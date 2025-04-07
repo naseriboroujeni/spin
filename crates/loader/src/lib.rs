@@ -84,7 +84,9 @@ fn single_file_manifest(
 
         [[trigger.http]]
         route = "/..."
-        component = { source = wasm_path_str }
+        component = { source = wasm_path_str, allowed_outbound_hosts = [
+            "https://*",
+        ]}
     );
 
     let manifest = spin_manifest::schema::v2::AppManifest::deserialize(manifest)?;
